@@ -20,6 +20,8 @@ public class EventManager : MonoBehaviour
         
     }
 
+    //pivotTheta.transform.localRotation = Quaternion.AngleAxis(theta * Mathf.Rad2Deg, Vector3.forward);
+
     void StartMinigame()
     {
         Instantiate(minigame);
