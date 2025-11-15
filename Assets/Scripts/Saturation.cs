@@ -19,4 +19,9 @@ public class Saturation : MonoBehaviour
         // Debug.Log(passedTime);
         feature.passMaterial.SetFloat("_Saturation", passedTime % 1.0f); // 0 to 1
     }
+
+    public void SetSaturation (float sat)
+    {
+        feature.passMaterial.SetFloat("_Saturation", sat); // 0 to 1
+    }
 }
