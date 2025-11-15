@@ -1894,10 +1894,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1265092767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e08e53bd6e37dc47be3997ef6aa1512, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f9402d0945004b42932aadb454e2b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 10
+  moveControl: {fileID: -1680798424246785087, guid: 6e8c5fc0e76c68e4f9abcb777bd34de5, type: 3}
+  onMinigameStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &1265092769
 Rigidbody2D:
   serializedVersion: 5
