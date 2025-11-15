@@ -32,13 +32,8 @@ public class Minigame : MonoBehaviour
         if(context.performed)
             rotationRate = 0f;
             interactControl.action.Disable();
-            
-            coroutine = Wait(2.0f);
-            StartCoroutine(coroutine);
 
-            Debug.Log("Gata");
-
-            DestroyImmediate(this);
+            Destroy(this,2);
             
     }
 
