@@ -35,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.tag == "Enemy")
             onMinigameStart.Invoke();
-        moveControl.action.Disable();
+            moveControl.action.Disable();
+            Debug.Log("Minigame is suppposed to start");
     }
 
 }

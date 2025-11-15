@@ -8,6 +8,9 @@ public class EventManager : MonoBehaviour
     [SerializeField]
     Minigame minigame;
 
+    [SerializeField]
+    AutoScroll autoScroll;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +28,7 @@ public class EventManager : MonoBehaviour
     void StartMinigame()
     {
         Instantiate(minigame);
+        autoScroll.currentSpeed = 0;
         //minigame.onMinigameEnd.AddListener(EndMinigame);
     }
 
