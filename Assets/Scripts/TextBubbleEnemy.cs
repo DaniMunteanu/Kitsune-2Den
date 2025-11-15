@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnavoidableEnemy : MonoBehaviour
+public class TextBubbleEnemy : MonoBehaviour
 {
     protected Rigidbody2D rb;
 
@@ -18,7 +18,14 @@ public class UnavoidableEnemy : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D _other)
     {
-        Debug.Log("Unavoidable enemy encountered");
+        if (_other.isTrigger)
+        {
+            Debug.Log("Bubble text found");
+        }
+        if (!_other.isTrigger)
+        {
+            Debug.Log("Bubble enemy found");
+        }
         //break collider after
     }
 

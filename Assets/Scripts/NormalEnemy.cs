@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnavoidableEnemy : MonoBehaviour
+public class NormalEnemy : MonoBehaviour
 {
     protected Rigidbody2D rb;
 
@@ -18,7 +18,7 @@ public class UnavoidableEnemy : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D _other)
     {
-        Debug.Log("Unavoidable enemy encountered");
+        Debug.Log("Normal enemy encountered");
         //break collider after
     }
 
