@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class AutoScroll : MonoBehaviour
 {
-    [SerializeField] public float speed; 
+    [SerializeField] EventManager eventManager;
 
     public float currentSpeed;
 
-    void Start()
-    {
-        currentSpeed = speed;
-    }
     void Update()
     {
+        currentSpeed = eventManager.currentScrollSpeed;
         transform.Translate( 0, currentSpeed, 0);
     }
 }

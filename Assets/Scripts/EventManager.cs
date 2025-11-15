@@ -1,4 +1,6 @@
+using UnityEditor.Il2Cpp;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EventManager : MonoBehaviour
 {
@@ -8,12 +10,14 @@ public class EventManager : MonoBehaviour
     [SerializeField]
     Minigame minigame;
 
-    [SerializeField]
-    AutoScroll autoScroll;
+    [SerializeField] public float normalScrollSpeed = 0f;
+    public float currentScrollSpeed = 0f;
+    public Minigame instantiatedMinigame;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentScrollSpeed = normalScrollSpeed;
         player.onMinigameStart.AddListener(StartMinigame);
     }
 
@@ -27,13 +31,21 @@ public class EventManager : MonoBehaviour
 
     void StartMinigame()
     {
-        Instantiate(minigame);
-        autoScroll.currentSpeed = 0;
+        instantiatedMinigame = Instantiate(minigame);
+        instantiatedMinigame.onMinigameEnd.AddListener(EndMinigame);
+        currentScrollSpeed = 0;
         //minigame.onMinigameEnd.AddListener(EndMinigame);
     }
 
     void EndMinigame()
     {
-        //DestroyImmediate(this);
+        instantiatedMinigame.onMinigameEnd.RemoveListener(EndMinigame);
+        Debug.Log("Gata cu joaca");
+        player.transform.position += new Vector3(0f, 5f, 0f);
+        
+        player.OnEnable();
+
+        currentScrollSpeed = normalScrollSpeed;
+
     }
 }

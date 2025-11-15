@@ -28,8 +28,8 @@ RectTransform:
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3076007961189577625}
   - {fileID: 865754281989713772}
+  - {fileID: 3076007961189577625}
   m_Father: {fileID: 1887906307519510494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.8
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -447,6 +447,7 @@ MonoBehaviour:
       m_Calls: []
   newRotationZ: 0
   rotationRate: 0
+  winSpot: {fileID: 8919814560215486030}
 --- !u!1 &3558141295326313632
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,9 +518,9 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillAmount: 0.2
+  m_FillClockwise: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6568612793972894613
