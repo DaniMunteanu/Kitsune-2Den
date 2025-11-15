@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    public float moveSpeed = 5f;
+    float moveSpeed = 5f;
 
     [SerializeField]
     InputActionReference moveControl;
+
+    public UnityEvent onMinigameStart;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,5 +31,11 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(movement);
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+            onMinigameStart.Invoke();
+        moveControl.action.Disable();
+    }
 
 }
