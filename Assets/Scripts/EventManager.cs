@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Il2Cpp;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,13 +11,27 @@ public class EventManager : MonoBehaviour
     [SerializeField]
     Minigame minigame;
 
+    [SerializeField]
+    GameOver gameOver;
+
+    [SerializeField]
+    Saturation saturation;
+
     [SerializeField] public float normalScrollSpeed = 0f;
     public float currentScrollSpeed = 0f;
+    public int lives = 5;
+    public float saturationStep = 0.2f;
+    public int totalMinigames = 5;
+    public float[] levelRotationRate;
+    public float[] levelFillAmount;
+    public int minigameCount = 0;
     public Minigame instantiatedMinigame;
+    public GameOver instantiatedGameOver;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        saturation.SetSaturation(0.0f);
         currentScrollSpeed = normalScrollSpeed;
         player.onMinigameStart.AddListener(StartMinigame);
     }
@@ -32,7 +47,11 @@ public class EventManager : MonoBehaviour
     void StartMinigame()
     {
         instantiatedMinigame = Instantiate(minigame);
+        instantiatedMinigame.currentRotationRate = levelRotationRate[Math.Min(minigameCount, totalMinigames - 1)];
+        instantiatedMinigame.currentFillAmmount = levelFillAmount[Math.Min(minigameCount, totalMinigames - 1)];
         instantiatedMinigame.onMinigameEnd.AddListener(EndMinigame);
+        instantiatedMinigame.onMinigameWin.AddListener(OnMinigameWon);
+        instantiatedMinigame.onMinigameLose.AddListener(OnMinigameLost);
         currentScrollSpeed = 0;
         //minigame.onMinigameEnd.AddListener(EndMinigame);
     }
@@ -40,12 +59,34 @@ public class EventManager : MonoBehaviour
     void EndMinigame()
     {
         instantiatedMinigame.onMinigameEnd.RemoveListener(EndMinigame);
-        Debug.Log("Gata cu joaca");
-        player.transform.position += new Vector3(0f, 5f, 0f);
+        instantiatedMinigame.onMinigameWin.RemoveListener(OnMinigameWon);
+        instantiatedMinigame.onMinigameLose.RemoveListener(OnMinigameLost);
+        
+        player.transform.position += new Vector3(0f, 4f, 0f);
         
         player.OnEnable();
 
         currentScrollSpeed = normalScrollSpeed;
+        minigameCount++;
 
+        if (lives == 0)
+            GameDefeat();
+    }
+
+    void OnMinigameWon()
+    {
+        
+    }
+
+    void OnMinigameLost()
+    {
+        lives--;
+        saturation.SetSaturation(1 - (lives * saturationStep));
+    }
+
+    void GameDefeat()
+    {
+        instantiatedGameOver = Instantiate(gameOver);
+        currentScrollSpeed = 0;
     }
 }
