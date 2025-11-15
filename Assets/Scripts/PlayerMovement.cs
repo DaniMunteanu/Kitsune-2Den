@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,14 +12,20 @@ public class PlayerMovement : MonoBehaviour
     InputActionReference moveControl;
 
     public UnityEvent onMinigameStart;
+    protected BoxCollider2D bc;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        bc = GetComponent<BoxCollider2D>();
     }
 
-    void OnEnable()
+    void DisableCollider()
+    {
+        bc.enabled = false;
+    }
+
+    public void OnEnable()
     {
         moveControl.action.Enable();
     }
@@ -36,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "Enemy")
             onMinigameStart.Invoke();
             moveControl.action.Disable();
-            Debug.Log("Minigame is suppposed to start");
     }
 
 }
