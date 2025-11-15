@@ -14,4 +14,10 @@ public class Menu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
+
+    public void BackToMenu()
+    {
+        Debug.Log("Back to Menu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
+    }
 }
