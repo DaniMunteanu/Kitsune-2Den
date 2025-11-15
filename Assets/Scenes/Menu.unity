@@ -1078,7 +1078,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1257220054}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1450288525}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1257220054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,6 +1138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1450288524}
+  - component: {fileID: 1450288525}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -1142,9 +1155,9 @@ Transform:
   m_GameObject: {fileID: 1450288523}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.098412, y: -78.08673, z: -5742}
-  m_LocalScale: {x: 63.8, y: 63.8, z: 63.8}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -16.7, y: -47.1, z: -5742}
+  m_LocalScale: {x: 40.4, y: 40.4, z: 38.12038}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 61308282}
   - {fileID: 1729364869}
@@ -1152,6 +1165,18 @@ Transform:
   - {fileID: 1257220052}
   m_Father: {fileID: 435682487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1450288525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450288523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06229d755b20b694f922f8a8fe1eee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menu
 --- !u!1 &1729364868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,18 +1260,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1450288525}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1729364871
 MonoBehaviour:
   m_ObjectHideFlags: 0
