@@ -178,7 +178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Careful what you say...
+  m_text: Press SPACE to lie about your mental health (VwV)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -442,6 +442,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Minigame
   arrowHandle: {fileID: 6568612793972894613}
   interactControl: {fileID: -7610478169054989072, guid: 6e8c5fc0e76c68e4f9abcb777bd34de5, type: 3}
+  textBubbleUI: {fileID: 4834899703094121838, guid: e094aa94c90a8f244b7e2e162b00a0cf, type: 3}
+  questions: []
+  angstyAnswers: []
+  honestAnswers: []
   onMinigameEnd:
     m_PersistentCalls:
       m_Calls: []
@@ -454,6 +458,9 @@ MonoBehaviour:
   newRotationZ: 0
   currentRotationRate: 0
   currentFillAmmount: 0
+  pickedLineIndex: 0
+  instantiatedQuestionTextBubbleUI: {fileID: 0}
+  instantiatedAnswerTextBubbleUI: {fileID: 0}
   winSpot: {fileID: 8919814560215486030}
   wheelParent: {fileID: 725341491257153495}
 --- !u!1 &3558141295326313632

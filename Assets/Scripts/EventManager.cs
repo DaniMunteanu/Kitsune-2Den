@@ -17,11 +17,14 @@ public class EventManager : MonoBehaviour
     [SerializeField]
     Saturation saturation;
 
+    [SerializeField]
+    GameObject gameplayText; 
+
     [SerializeField] public float normalScrollSpeed = 0f;
     public float currentScrollSpeed = 0f;
-    public int lives = 5;
-    public float saturationStep = 0.2f;
-    public int totalMinigames = 5;
+    public int lives = 10;
+    public float saturationStep = 0.1f;
+    public int totalMinigames = 10;
     public float[] levelRotationRate;
     public float[] levelFillAmount;
     public int minigameCount = 0;
@@ -46,6 +49,7 @@ public class EventManager : MonoBehaviour
 
     void StartMinigame()
     {
+        gameplayText.SetActive(false);
         instantiatedMinigame = Instantiate(minigame);
         instantiatedMinigame.currentRotationRate = levelRotationRate[Math.Min(minigameCount, totalMinigames - 1)];
         instantiatedMinigame.currentFillAmmount = levelFillAmount[Math.Min(minigameCount, totalMinigames - 1)];
@@ -58,6 +62,7 @@ public class EventManager : MonoBehaviour
 
     void EndMinigame()
     {
+        gameplayText.SetActive(true);
         instantiatedMinigame.onMinigameEnd.RemoveListener(EndMinigame);
         instantiatedMinigame.onMinigameWin.RemoveListener(OnMinigameWon);
         instantiatedMinigame.onMinigameLose.RemoveListener(OnMinigameLost);
